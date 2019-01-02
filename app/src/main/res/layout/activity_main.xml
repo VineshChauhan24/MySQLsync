@@ -13,23 +13,37 @@
         android:layout_margin="10dp" />
 
     <LinearLayout
+        android:id="@+id/ll1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"></LinearLayout>
-
-    <TextView
-        android:id="@+id/new_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter new name here"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"/>
-<Button
-    android:id="@+id/btn_add"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Add"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentRight="true"
-    android:onClick="addNew"/>
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+
+        <EditText
+            android:id="@+id/new_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="@android:color/darker_gray"
+            android:hint="Enter new name here" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:onClick="addNew"
+            android:text="Add" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@id/ll1"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/black" />
 </RelativeLayout>

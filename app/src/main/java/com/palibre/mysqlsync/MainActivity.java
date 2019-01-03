@@ -9,11 +9,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     SQLiteDatabase ourDB = null;
     EditText edName;
     RecyclerView rcvContacts;
     RecyclerView.LayoutManager  lom;
+    ArrayList<Contact> contactArray = new ArrayList<Contact>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         lom = new LinearLayoutManager(this);
         rcvContacts.setLayoutManager(lom);
         rcvContacts.setHasFixedSize(true);
+        setupTestData();
+        ContactsAdapter ca = new ContactsAdapter(contactArray);
+        rcvContacts.setAdapter(ca);
     }
 
     public void addNew (View v) {
@@ -32,5 +38,10 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         Toast.makeText(this, "Adding " + name + " to database", Toast.LENGTH_LONG).show();
+    }
+
+    private void setupTestData () {
+        contactArray.add(new Contact ("Dennis", 0));
+        contactArray.add(new Contact ("Patty", 1));
     }
 }

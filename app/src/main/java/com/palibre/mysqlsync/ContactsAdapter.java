@@ -1,5 +1,6 @@
 package com.palibre.mysqlsync;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,9 +13,10 @@ import java.util.ArrayList;
 
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactVH> {
     private ArrayList<Contact> contactList = new ArrayList<Contact>();
-
-    ContactsAdapter(ArrayList<Contact> displayList){
+    private Context cntx;
+    ContactsAdapter(Context context, ArrayList<Contact> displayList){
         contactList = displayList;
+        cntx = context;
     }
     @NonNull
     @Override
@@ -30,9 +32,10 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         int syncStatus = contactList.get(position).getSyncStatus();
         if (syncStatus == DbContract.SYNC_STATUS_FAILED) {
             holder.syncStatus.setImageResource(R.drawable.ic_sync_needed);
+            int color = cntx.getResources().getColor(android.R.color.holo_red_light);
         }
         else {
-            holder.syncStatus.setImageResource(R.drawable.ic_sync_needed);
+            holder.syncStatus.setImageResource(R.drawable.ic_tick);
         }
     }
 

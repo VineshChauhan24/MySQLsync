@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactVH> {
+public class  ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactVH> {
     private ArrayList<Contact> contactList = new ArrayList<Contact>();
     private Context cntx;
     ContactsAdapter(Context context, ArrayList<Contact> displayList){
@@ -31,11 +31,10 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         holder.name.setText(contactList.get(position).getName());
         int syncStatus = contactList.get(position).getSyncStatus();
         if (syncStatus == DbContract.SYNC_STATUS_FAILED) {
-            holder.syncStatus.setImageResource(R.drawable.ic_sync_needed);
-            int color = cntx.getResources().getColor(android.R.color.holo_red_light);
+            holder.syncStatus.setImageResource(R.mipmap.ic_not_synced);
         }
         else {
-            holder.syncStatus.setImageResource(R.drawable.ic_tick);
+            holder.syncStatus.setImageResource(R.mipmap.ic_ok);
         }
     }
 

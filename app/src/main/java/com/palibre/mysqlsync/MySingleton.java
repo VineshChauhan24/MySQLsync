@@ -22,7 +22,7 @@ public class MySingleton {
         return requestQueue;
     }
 
-    public static synchronized MySingleton getmInstance (Context context) {
+    public static synchronized MySingleton getInstance (Context context) {
         if (mInstance == null) {
             mInstance = new MySingleton(context);
         }

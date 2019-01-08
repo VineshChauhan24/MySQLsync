@@ -52,7 +52,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
     }
 
-    void updateLocalDatabase(String name, int syncStatus, SQLiteDatabase db) {
+    public void updateLocalDatabase(String name, int syncStatus, SQLiteDatabase db) {
         ContentValues cv = new ContentValues();
         cv.put(NAME, name);
         cv.put(SYNC_STATUS, syncStatus);

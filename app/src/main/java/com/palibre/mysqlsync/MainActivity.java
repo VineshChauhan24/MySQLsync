@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         registerReceiver(broadcastReceiver, new IntentFilter(UI_UPDATE_BROADCAST));
+        readFromLocalStorage();
     }
 
     @Override

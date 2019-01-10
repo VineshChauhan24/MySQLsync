@@ -3,6 +3,7 @@ package com.palibre.mysqlsync;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,11 +47,13 @@ public class  ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Conta
     public static class ContactVH extends RecyclerView.ViewHolder {
         ImageView syncStatus;
         TextView name;
+        ImageView delete;
         public ContactVH(View itemView)
         {
             super(itemView);
             syncStatus = itemView.findViewById(R.id.imgSync);
             name = itemView.findViewById(R.id.txtName);
+            delete = itemView.findViewById(R.id.imgDelete);
         }
     }
 

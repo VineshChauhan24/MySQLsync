@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import static com.palibre.mysqlsync.DbContract.DATABASE_NAME;
 import static com.palibre.mysqlsync.DbContract.NAME;
@@ -58,6 +59,7 @@ public class DBhelper extends SQLiteOpenHelper {
         cv.put(SYNC_STATUS, syncStatus);
         String selection = NAME + " like ?";
         String selArgs[] = {name};
-        db.update(TABLE_NAME, cv, selection, selArgs);
+        int l = db.update(TABLE_NAME, cv, selection, selArgs);
+        Log.i ("DMN", "Update response =" + l);
     }
 }
